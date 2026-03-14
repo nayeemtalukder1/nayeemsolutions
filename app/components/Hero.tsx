@@ -56,14 +56,13 @@ const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-            We Build High-Converting Brands, Websites, and Digital Strategies
-            Engineered to Scale Your Business.
+            I build professional, high-converting wordpress websites that help businesses grow online. Let's create something amazing together.
           </p>
 
           {/* CTA Button */}
           <div className="pt-6 md:pt-10">
             <motion.a
-              href="#contact"
+              href="https://calendly.com/nayeemtalukder882/30min"
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.5 }}

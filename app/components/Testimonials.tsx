@@ -17,7 +17,7 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Our revenue grew by 250% after Nayeem rebuilt our website and optimized our marketing funnel. He genuinely cares about results and delivers fast.",
+      "Working with Nayeem was an amazing experience. He built our WordPress website exactly as we wanted. The design is modern, fast, and fully responsive. Highly recommended for anyone looking for a professional developer.",
     author: "Laura S.",
     role: "CEO",
     company: "MarketBoost",
@@ -25,7 +25,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Working with Nayeem was a game-changer. The WordPress site he built is fast, beautiful, and already ranking well. Highly recommend!",
+      "Nayeem developed our WooCommerce store and the result was outstanding. The website loads quickly, looks beautiful on mobile, and increased our online sales. I will definitely work with him again.",
     author: "Rahim Khan",
     role: "Founder",
     company: "TechVision BD",
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Professional, responsive, and extremely knowledgeable. My e-commerce store conversion rate doubled within 3 months. 10/10 service.",
+      "Very professional and skilled WordPress developer. Nayeem delivered the project on time and added many improvements we didn’t even think about. Communication was smooth throughout the project.",
     author: "Sofia Ahmed",
     role: "E-commerce Manager",
     company: "StyleHub",
