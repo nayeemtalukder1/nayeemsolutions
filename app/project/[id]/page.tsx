@@ -31,12 +31,25 @@ const allProjects: ProjectContent[] = [
     description: "A comprehensive digital overhaul focused on conversion.",
     challenge: "High bounce rate on mobile devices.",
     solution: "Mobile-first UI with streamlined checkout.",
-    tags: ["Next.js", "Tailwind", "Framer Motion"],
-    images: [
-      "/projects/1.jpeg",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
-    ],
+    tags: ["Wordpress", "CartFlows"],
+    images: ["/growthpowder/1.jpeg"],
+    liveUrl: "https://example.com"
+  },
+  {
+    id: "cloth-website", // Changed space to hyphen for URL consistency
+    title: "Cloth Website",
+    category: "Web Design / Paid Ads",
+    client: "Nexus Fashion",
+    date: "Oct 2025",
+    description: "A comprehensive digital overhaul focused on conversion.",
+    challenge: "High bounce rate on mobile devices.",
+    solution: "Mobile-first UI with streamlined checkout.",
+    tags: ["Wordpress", "Elementor Pro"],
+    images: ["/estore/1.jpeg", "/estore/2.jpeg", "/estore/3.jpeg",
+      "/estore/4.jpeg", "/estore/5.jpeg", "/estore/6.jpeg",
+      "/estore/7.jpeg", "/estore/8.jpeg", "/estore/9.jpeg",
+      "/estore/10.jpeg", "/estore/11.jpeg", "/estore/12.jpeg",
+      "/estore/13.jpeg", "/estore/14.jpeg", "/estore/15.jpeg"], // Uses the first image as the preview
     liveUrl: "https://example.com"
   }
 ];
