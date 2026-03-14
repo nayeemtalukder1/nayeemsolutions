@@ -14,13 +14,9 @@ const Contact: React.FC = () => {
     "Other",
   ];
 
+  // This ensures that if "Other" is picked, the value sent to Formspree is the custom text
   const effectiveSubject =
     selectedSubject === "Other" ? customSubject : selectedSubject;
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form Submitted", { subject: effectiveSubject });
-  };
 
   return (
     <section id="contact" className="py-24 bg-[#0a0a0a] text-white">
@@ -48,12 +44,17 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.7 }}
           className="bg-[#111111] border border-orange-500/20 rounded-2xl p-10 shadow-2xl shadow-orange-500/10 backdrop-blur-lg"
         >
-          <form onSubmit={handleSubmit} className="space-y-6 text-left">
-
-            <input type="hidden" name="subject" value={effectiveSubject} />
+          {/* Formspree Integration: Added action and method */}
+          <form
+            action="https://formspree.io/f/xzddpqvo"
+            method="POST"
+            className="space-y-6 text-left"
+          >
+            {/* Hidden field to capture the subject logic */}
+            <input type="hidden" name="_subject" value={`New Inquiry: ${effectiveSubject}`} />
+            <input type="hidden" name="selected_service" value={effectiveSubject} />
 
             <div className="grid md:grid-cols-2 gap-6">
-
               <motion.input
                 whileFocus={{ scale: 1.03 }}
                 name="name"
@@ -71,7 +72,6 @@ const Contact: React.FC = () => {
                 placeholder="Your Email*"
                 className="w-full bg-gray-900 border border-orange-200 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500 transition"
               />
-
             </div>
 
             <motion.input
@@ -84,7 +84,6 @@ const Contact: React.FC = () => {
             />
 
             <div className="grid md:grid-cols-2 gap-4">
-
               <motion.input
                 whileFocus={{ scale: 1.03 }}
                 name="budget"
@@ -101,16 +100,17 @@ const Contact: React.FC = () => {
                 className="w-full bg-gray-900 border border-orange-200 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500 transition appearance-none"
               >
                 <option value="">Select Subject*</option>
-
                 {serviceOptions.map((option, index) => (
                   <option key={index} value={option}>
                     {option}
                   </option>
                 ))}
-
               </select>
             </div>
 
+            {/* If "Other" is selected, this input is shown. 
+                Note: We don't give this a 'name' to avoid redundant data, 
+                as the hidden input 'selected_service' handles the value. */}
             {selectedSubject === "Other" && (
               <motion.input
                 initial={{ opacity: 0, y: -10 }}
@@ -147,10 +147,8 @@ const Contact: React.FC = () => {
                 </span>
               </motion.button>
             </div>
-
           </form>
         </motion.div>
-
       </div>
     </section>
   );
