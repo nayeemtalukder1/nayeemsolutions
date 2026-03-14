@@ -31,11 +31,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NayeemSolutions | Premium Web Development",
     description: "I build high-quality WordPress websites optimized for performance and conversions.",
-    url: "https://nayeemsolutions.com",
+    url: "https://solutions.nayeemtalukder.com",
     siteName: "NayeemSolutions",
     images: [
       {
-        url: "/og-image.jpg", // Create a 1200x630 image for social sharing
+        url: "/nayeem.png", // Create a 1200x630 image for social sharing
         width: 1200,
         height: 630,
       },
