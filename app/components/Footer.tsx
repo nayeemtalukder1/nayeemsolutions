@@ -1,11 +1,21 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { ArrowRight, Zap, MapPin, Mail } from "lucide-react";
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  Zap,
+  MapPin,
+  Mail,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Phone
+} from 'lucide-react';
 
-const Footer = () => {
-  const year = new Date().getFullYear();
+const Footer: React.FC = () => {
+  // TypeScript correctly infers 'number' for the year
+  const year: number = new Date().getFullYear();
 
   return (
     <footer className="bg-[#0a0a0a] text-white pt-24 pb-12 border-t border-gray-900">
@@ -24,8 +34,8 @@ const Footer = () => {
           </p>
 
           <h2 className="text-5xl md:text-7xl font-bold mb-12 tracking-tighter leading-tight">
-            Ready For <br />
-            <span className="text-orange-500">Growth?</span>
+            Ready For
+            <span className="text-orange-500"> Growth?</span>
           </h2>
 
           {/* CTA Button */}
@@ -33,17 +43,17 @@ const Footer = () => {
             href="#contact"
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.9 }}
-            className="w-32 h-32 rounded-full bg-orange-500 flex items-center justify-center mx-auto group cursor-pointer"
+            className="w-32 h-32 rounded-full bg-orange-500 flex items-center justify-center mx-auto group cursor-pointer border-none outline-none"
           >
             <div className="text-center">
               <ArrowRight className="w-8 h-8 mx-auto mb-1 group-hover:translate-x-1 transition-transform" />
-              <span className="text-[10px] font-bold uppercase">
+              <span className="text-[10px] font-bold uppercase tracking-tighter">
                 GET IN TOUCH
               </span>
             </div>
           </motion.a>
 
-          <p className="text-gray-500 mt-12 text-sm max-w-xl mx-auto">
+          <p className="text-gray-500 mt-12 text-sm max-w-xl mx-auto leading-relaxed">
             Let's talk about your business goals and how we can build a
             powerful website that helps you grow online.
           </p>
@@ -58,11 +68,11 @@ const Footer = () => {
           className="grid md:grid-cols-4 gap-12 mb-24"
         >
 
-          {/* Brand */}
+          {/* Brand & Newsletter */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-                <Zap className="text-white w-5 h-5" />
+                <Zap className="text-white w-5 h-5 fill-current" />
               </div>
 
               <span className="text-2xl font-bold tracking-tighter">
@@ -70,107 +80,80 @@ const Footer = () => {
               </span>
             </div>
 
-            <p className="text-gray-400 text-sm mb-8">
+            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
               Get updates, tips, and insights about web development and digital growth.
             </p>
 
-            {/* Newsletter */}
-            <div className="relative">
+            {/* Newsletter Input */}
+            <form onSubmit={(e) => e.preventDefault()} className="relative">
               <input
                 type="email"
                 placeholder="Enter Your Email"
-                className="w-full bg-gray-900 border border-gray-800 rounded-full py-3 px-6 text-sm focus:outline-none focus:border-orange-500"
+                className="w-full bg-gray-900 border border-gray-800 rounded-full py-3 px-6 text-sm focus:outline-none focus:border-orange-500 transition-colors"
               />
 
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+              <button
+                type="submit"
+                aria-label="Subscribe"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/20"
+              >
                 <ArrowRight className="w-4 h-4" />
               </button>
-            </div>
+            </form>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-6">Quick Links</h4>
-
+            <h4 className="font-bold mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li>
-                <a href="#services" className="hover:text-orange-500 transition">
-                  Services
-                </a>
-              </li>
-
-              <li>
-                <a href="#why-us" className="hover:text-orange-500 transition">
-                  Why Choose Me
-                </a>
-              </li>
-
-              <li>
-                <a href="#testimonial" className="hover:text-orange-500 transition">
-                  Testimonials
-                </a>
-              </li>
-
-              <li>
-                <a href="#contact" className="hover:text-orange-500 transition">
-                  Contact
-                </a>
-              </li>
+              <li><a href="#services" className="hover:text-orange-500 transition-colors">Services</a></li>
+              <li><a href="#why-us" className="hover:text-orange-500 transition-colors">Why Choose Me</a></li>
+              <li><a href="#testimonial" className="hover:text-orange-500 transition-colors">Testimonials</a></li>
+              <li><a href="#contact" className="hover:text-orange-500 transition-colors">Contact</a></li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services List */}
           <div>
-            <h4 className="font-bold mb-6">Services</h4>
-
+            <h4 className="font-bold mb-6 text-lg">Services</h4>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li>
-                <a href="#services" className="hover:text-orange-500 transition">
-                  Business Website
-                </a>
-              </li>
-
-              <li>
-                <a href="#services" className="hover:text-orange-500 transition">
-                  WooCommerce Store
-                </a>
-              </li>
-
-              <li>
-                <a href="#services" className="hover:text-orange-500 transition">
-                  Landing Page
-                </a>
-              </li>
-
-              <li>
-                <a href="#services" className="hover:text-orange-500 transition">
-                  Portfolio Website
-                </a>
-              </li>
+              <li><a href="#services" className="hover:text-orange-500 transition-colors">Business Website</a></li>
+              <li><a href="#services" className="hover:text-orange-500 transition-colors">WooCommerce Store</a></li>
+              <li><a href="#services" className="hover:text-orange-500 transition-colors">Landing Page</a></li>
+              <li><a href="#services" className="hover:text-orange-500 transition-colors">Portfolio Website</a></li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Details */}
           <div className="space-y-6">
-
+            <h4 className="font-bold mb-6 text-lg">Contact Info</h4>
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <MapPin className="w-5 h-5 text-orange-500" />
+              <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0" />
               <span>Mymensingh, Bangladesh</span>
             </div>
 
             <a
-              href="mailto:info@nayeemsolutions.com"
-              className="flex items-center gap-4 text-sm text-gray-400 hover:text-orange-500 transition"
+              href="https://wa.me/8801969148410"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 text-sm text-gray-400 hover:text-orange-500 transition-colors group"
             >
-              <Mail className="w-5 h-5 text-orange-500" />
-              <span>nayeemtalukder882@gmail.com</span>
+              <Phone className="w-5 h-5 text-orange-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <span>+08801969-148410</span>
             </a>
 
+            <a
+              href="mailto:nayeemtalukder882@gmail.com"
+              className="flex items-center gap-4 text-sm text-gray-400 hover:text-orange-500 transition-colors group"
+            >
+              <Mail className="w-5 h-5 text-orange-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="truncate">nayeemtalukder882@gmail.com</span>
+            </a>
           </div>
 
         </motion.div>
 
-        {/* Bottom */}
+        {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -182,13 +165,14 @@ const Footer = () => {
             © {year} NayeemSolutions. All Rights Reserved.
           </p>
 
-          {/* Social */}
+          {/* Social Links */}
           <div className="flex items-center gap-6">
-
             <a
               href="https://instagram.com"
               target="_blank"
-              className="hover:text-orange-500 transition"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-500 transition-colors"
+              aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
             </a>
@@ -196,19 +180,22 @@ const Footer = () => {
             <a
               href="https://facebook.com"
               target="_blank"
-              className="hover:text-orange-500 transition"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-500 transition-colors"
+              aria-label="Facebook"
             >
               <Facebook className="w-5 h-5" />
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/nayeemtalukder882"
               target="_blank"
-              className="hover:text-orange-500 transition"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-500 transition-colors"
+              aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
-
           </div>
         </motion.div>
 

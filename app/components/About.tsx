@@ -1,12 +1,14 @@
-// components/About.tsx
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Layout, Users, Globe } from 'lucide-react';
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <section id="about" className="py-24 md:py-32 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+
         {/* Left - Image + Badge */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -18,7 +20,7 @@ const About = () => {
           <div className="aspect-[4/5] md:aspect-square rounded-3xl overflow-hidden border border-gray-800/50 shadow-2xl shadow-black/60 relative">
             <img
               src="/nayeem.png"
-              alt="Team discussing digital marketing strategy on whiteboard"
+              alt="Nayeem - WordPress Developer"
               className="w-full h-full object-cover brightness-90 contrast-110"
               referrerPolicy="no-referrer"
             />
@@ -63,7 +65,7 @@ const About = () => {
           {/* Quote block with subtle border glow */}
           <div className="bg-gray-900/60 border-l-4 border-orange-500/80 p-6 md:p-8 rounded-r-xl backdrop-blur-sm">
             <p className="italic text-gray-200 text-lg leading-relaxed">
-              I build high quality Wordpress websites that are not only visually stunning but also optimized for performance and conversions. With over a decade of experience.
+              I build high quality Wordpress websites that are not only visually stunning but also optimized for performance and conversions.
             </p>
           </div>
 
@@ -81,7 +83,7 @@ const About = () => {
             </motion.button>
 
             <motion.a
-              href="/your-cv.pdf"           // ← Replace with actual CV file path or external link
+              href="/your-cv.pdf" // Update with your actual path
               download="Nayeem_Talukder_CV.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}

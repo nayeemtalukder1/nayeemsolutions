@@ -1,36 +1,40 @@
+'use client';
+
 import React from 'react';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { motion, Variants } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
-// Animation variants
-const cardVariants = {
-  hidden: { opacity: 0, y: 60 },
+// --- TYPES ---
+interface Project {
+  id: string; // Added ID for dynamic routing
+  img: string;
+  name: string;
+  category: string;
+}
+
+// --- ANIMATION VARIANTS ---
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeOut'
-    }
+    transition: { duration: 0.6, ease: 'easeOut' }
   }
 };
 
-const imageVariants = {
-  rest: {
-    scale: 1.05,
-    y: 0
-  },
+const imageVariants: Variants = {
+  rest: { y: "0%" },
   hover: {
-    scale: 1.12,
-    y: -35,           // ← image moves UP on hover
+    y: "-70%",
     transition: {
-      duration: 0.5,
-      ease: 'easeOut'
+      duration: 5,
+      ease: "linear"
     }
   }
 };
 
-const overlayVariants = {
+const overlayVariants: Variants = {
   rest: { opacity: 0 },
   hover: {
     opacity: 1,
@@ -38,43 +42,37 @@ const overlayVariants = {
   }
 };
 
-const staggerContainer = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
-
-const Portfolio = () => {
-  const projects = [
+const Portfolio: React.FC = () => {
+  const projects: Project[] = [
     {
-      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80",
-      name: "E-commerce Growth Campaign",
+      id: "ecommerce-growth", // This must match the folder ID logic
+      img: "/projects/1.jpeg", // Ensure path starts with / for public folder
+      name: "E-commerce Growth",
       category: "Web Design / Paid Ads"
     },
     {
-      img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80",
-      name: "SaaS Landing Page Redesign",
+      id: "saas-landing",
+      img: "/projects/2.jpeg",
+      name: "SaaS Landing Page",
       category: "UI/UX / Branding"
     },
     {
+      id: "brand-identity",
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
-      name: "Brand Identity Refresh",
+      name: "Brand Identity",
       category: "Branding / Strategy"
     }
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-[#0a0a0a] text-white overflow-hidden">
+    <section id="portfolio" className="relative z-0 py-24 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
+
+        {/* Header */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={staggerContainer}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <p className="text-orange-500 font-semibold uppercase text-xs tracking-widest mb-4 flex justify-center items-center gap-2">
@@ -85,47 +83,42 @@ const Portfolio = () => {
           </h2>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={staggerContainer}
-          className="grid md:grid-cols-3 gap-8"
-        >
+        {/* Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              variants={cardVariants}
-              whileHover="hover"
-              initial="rest"
-              className="group relative rounded-3xl overflow-hidden border border-gray-800 shadow-xl shadow-black/30"
-            >
-              {/* Longer image container – taller aspect ratio */}
-              <div className="aspect-[3/4] md:aspect-[4/6] overflow-hidden bg-gray-900">
-                <motion.img
-                  variants={imageVariants}
-                  src={project.img}
-                  alt={project.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              {/* Overlay that appears on hover */}
+            <Link key={i} href={`/project/${project.id}`}>
               <motion.div
-                variants={overlayVariants}
-                className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-6 md:p-8"
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true }}
+                className="group relative rounded-3xl overflow-hidden border border-gray-800 bg-gray-900 h-[500px] cursor-pointer"
               >
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2">{project.name}</h3>
-                  <p className="text-orange-400 text-sm md:text-base font-medium">
-                    {project.category}
-                  </p>
+                {/* Image Window */}
+                <div className="w-full h-full overflow-hidden relative">
+                  <motion.img
+                    variants={imageVariants}
+                    src={project.img}
+                    alt={project.name}
+                    className="w-full h-auto min-h-full object-cover"
+                  />
                 </div>
+
+                {/* Hover Overlay */}
+                <motion.div
+                  variants={overlayVariants}
+                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8"
+                >
+                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-xl font-bold mb-1">{project.name}</h3>
+                    <p className="text-orange-400 text-sm font-medium">{project.category}</p>
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </Link>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

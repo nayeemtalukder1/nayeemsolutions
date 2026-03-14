@@ -4,30 +4,7 @@
  */
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import {
-  ArrowRight,
-  Menu,
-  X,
-  CheckCircle2,
-  Instagram,
-  Facebook,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Layout,
-  Globe,
-  TrendingUp,
-  ShoppingCart,
-  Target,
-  Zap,
-  Users,
-  Award,
-  Search,
-  MessageSquare
-} from 'lucide-react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
@@ -38,42 +15,34 @@ import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-// --- Components ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default function App() {
+/**
+ * Main Entry Point for NayeemSolutions Portfolio
+ * * Note: Ensure all component files (.tsx) are inside the /components folder
+ * and exported as default.
+ */
+const App: React.FC = () => {
   return (
     <div className="bg-[#0a0a0a] min-h-screen font-sans selection:bg-orange-500 selection:text-white">
+      {/* Navigation Layer */}
+
       <Navbar />
-      <Hero />
-      <TrustBar />
-      <About />
-      <Services />
-      <WhyChooseUs />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
+      {/* Main Content Sections */}
+      <main>
+        <Hero />
+        <TrustBar />
+        <About />
+        <Services />
+        <WhyChooseUs />
+        <Portfolio />
+        <Testimonials />
+        <Contact />
+      </main>
+
+      {/* Global Footer */}
       <Footer />
     </div>
   );
 }
+
+export default App;
