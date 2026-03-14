@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, Plus_Jakarta_Sans } from "next/font/google"; // note: Geist → GeistSans
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"], // all available weights
+  style: ["normal", "italic"], // includes italics!
+  display: "swap",
+  variable: "--font-plus-jakarta-sans", // CSS var for Tailwind
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],     // enables italic variants
+  display: "swap",
+  variable: "--font-roboto",       // CSS var for Tailwind
 });
 
 export const metadata: Metadata = {
@@ -23,10 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${plusJakartaSans.variable} ${roboto.variable}`}
+    >
+      <body className={`${plusJakartaSans.className} antialiased`}>
         {children}
       </body>
     </html>
