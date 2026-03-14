@@ -83,8 +83,8 @@ const About: React.FC = () => {
             </motion.button>
 
             <motion.a
-              href="/your-cv.pdf" // Update with your actual path
-              download="Nayeem_Talukder_CV.pdf"
+              href="/portfolio.pdf" // Update with your actual path
+              download="portfolio.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               className="group inline-flex items-center gap-3 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-orange-900/40"

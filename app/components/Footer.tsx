@@ -167,7 +167,7 @@ const Footer: React.FC = () => {
 
           {/* Social Links */}
           <div className="flex items-center gap-6">
-            <a
+            {/* <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -175,6 +175,16 @@ const Footer: React.FC = () => {
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
+            </a> */}
+
+            <a
+              href="https://wa.me/8801969148410"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-500 transition-colors"
+              aria-label="WhatsApp"
+            >
+              <Phone className="w-5 h-5" />
             </a>
 
             <a

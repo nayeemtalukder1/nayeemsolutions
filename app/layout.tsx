@@ -23,6 +23,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "NayeemSolutions | WordPress Developer & Digital Strategist",
   description: "High-converting WordPress websites and digital growth strategies engineered to scale your business.",
+  icons: {
+    icon: "/favicon.png",
+  },
   keywords: ["WordPress Developer", "Web Design Bangladesh", "NayeemSolutions"],
   authors: [{ name: "Nayeem Talukder" }],
   openGraph: {
