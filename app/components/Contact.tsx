@@ -7,10 +7,10 @@ const Contact: React.FC = () => {
   const [customSubject, setCustomSubject] = useState("");
 
   const serviceOptions = [
-    "Web Development",
-    "UI/UX Design",
-    "Mobile App",
-    "SEO Optimization",
+    "Business Website",
+    "WooCommerce Store",
+    "Landing Page",
+    "Portfolio Website",
     "Other",
   ];
 
