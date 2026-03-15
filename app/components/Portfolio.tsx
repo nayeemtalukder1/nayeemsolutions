@@ -83,6 +83,19 @@ const Portfolio: React.FC = () => {
         "/estore/10.jpeg", "/estore/11.jpeg", "/estore/12.jpeg",
         "/estore/13.jpeg", "/estore/14.jpeg", "/estore/15.jpeg"], // Uses the first image as the preview
       liveUrl: "https://example.com"
+    },
+    {
+      id: "portfolio-project", // Changed space to hyphen for URL consistency
+      title: "Portfolio Project",
+      category: "Web Design / Paid Ads",
+      client: "Shohanur Rahman",
+      date: "Jan 2025",
+      description: "A comprehensive digital overhaul focused on conversion.",
+      challenge: "High bounce rate on mobile devices.",
+      solution: "Mobile-first UI with streamlined checkout.",
+      tags: ["Wordpress", "Elementor Pro"],
+      images: ["/shohanur/1.jpeg"], // Uses the first image as the preview
+      liveUrl: "https://getgoingwithshohan.com"
     }
   ];
 
