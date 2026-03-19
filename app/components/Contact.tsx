@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
         >
           {/* Formspree Integration: Added action and method */}
           <form
-            action="https://formspree.io/f/xzddpqvo"
+            action="https://formspree.io/f/mqeyngnv"
             method="POST"
             className="space-y-6 text-left"
           >

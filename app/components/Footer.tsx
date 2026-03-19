@@ -143,11 +143,11 @@ const Footer: React.FC = () => {
             </a>
 
             <a
-              href="mailto:nayeemtalukder882@gmail.com"
+              href="mailto:nayeemsolutions.info@gmail.com"
               className="flex items-center gap-4 text-sm text-gray-400 hover:text-orange-500 transition-colors group"
             >
               <Mail className="w-5 h-5 text-orange-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <span className="truncate">nayeemtalukder882@gmail.com</span>
+              <span className="truncate">nayeemsolutions.info@gmail.com</span>
             </a>
           </div>
 
